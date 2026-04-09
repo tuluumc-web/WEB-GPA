@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>IUH GPA Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>IUH - Tính Điểm Tích Lũy</h2>
+        <form method="POST">
+            <div id="subject-container">
+                <div class="row">
+                    <input type="text" placeholder="Tên môn học (không bắt buộc)">
+                    <input type="number" name="grade" step="0.1" min="0" max="10" placeholder="Điểm hệ 10" required>
+                    <input type="number" name="credit" min="1" placeholder="Số tín chỉ" required>
+                </div>
+            </div>
+
+            <div class="btns">
+                <button type="button" id="add-btn">+ Thêm môn</button>
+                <button type="submit" class="calc-btn">Tính kết quả</button>
+            </div>
+        </form>
+
+        {% if results %}
+            <div class="result-card">
+                <p>Tổng tín chỉ: <strong>{{ results.total_cre }}</strong></p>
+                <p>GPA Hệ 10: <strong>{{ results.gpa10 }}</strong></p>
+                <p>GPA Hệ 4: <span class="highlight">{{ results.gpa4 }}</span></p>
+                <p>Xếp loại: <strong>{{ results.rank }}</strong></p>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById('add-btn').onclick = function() {
+            let container = document.getElementById('subject-container');
+            let newRow = document.createElement('div');
+            newRow.className = 'row';
+            newRow.innerHTML = `
+                <input type="text" placeholder="Tên môn học">
+                <input type="number" name="grade" step="0.1" min="0" max="10" placeholder="Điểm hệ 10" required>
+                <input type="number" name="credit" min="1" placeholder="Số tín chỉ" required>
+            `;
+            container.appendChild(newRow);
+        }
+    </script>
+</body>
+</html>

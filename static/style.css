@@ -1,0 +1,16 @@
+.container {
+    max-width: 500px; margin: auto; padding: 20px;
+    background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h2 { color: #ce1126; text-align: center; } /* Màu đỏ IUH */
+.row { display: flex; gap: 5px; margin-bottom: 10px; }
+input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; flex: 1; }
+.btns { margin-top: 15px; display: flex; gap: 10px; }
+button { flex: 1; padding: 10px; cursor: pointer; border: none; border-radius: 4px; }
+#add-btn { background: #6c757d; color: white; }
+.calc-btn { background: #ce1126; color: white; font-weight: bold; }
+.result-card {
+    margin-top: 20px; padding: 15px;
+    background: #f8f9fa; border-left: 5px solid #ce1126;
+}
+.highlight { color: #ce1126; font-size: 1.2em; font-weight: bold; }
